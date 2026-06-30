@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FÉNIX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* Agrega estilo aquí */
+    </style>
+</head>
+<body>
+    <div class="barra-sup">
+        <button id="atras"><i class="fa fa-arrow-left"></i></button>
+        <button id="adelante"><i class="fa fa-arrow-right"></i></button>
+        <button id="recargar"><i class="fa fa-refresh"></i></button>
+        <button id="inicio"><i class="fa fa-home"></i></button>
+        <div class="espacio"></div>
+        <button id="btn-estrella"><i class="fa fa-star-o"></i></button>
+        <div class="menu-puntos">
+            <button id="btn-menu"><i class="fa fa-ellipsis-v"></i></button>
+            <div class="menu-desp" id="menu-desp">
+                <button><i class="fa fa-plus-square-o"></i>Nueva pestaña</button>
+                <button><i class="fa fa-history"></i>Historial</button>
+                <button><i class="fa fa-cog"></i>Configuración</button>
+                <button id="borrar-todos"><i class="fa fa-trash-o"></i>Borrar marcadores</button>
+                <button id="acerca-de"><i class="fa fa-info-circle"></i>Acerca de FÉNIX</button>
+            </div>
+        </div>
+    </div>
+    <div id="pantalla-inicio" class="contenido">
+        <div class="marca">
+            <i class="fa fa-fire ico-fuego"></i>
+            <span class="txt-fenix">FÉNIX</span>
+        </div>
+        <div class="buscador">
+            <i class="fa fa-search"></i>
+            <input id="entrada-buscar" type="text" placeholder="Buscar o escribir dirección web...">
+        </div>
+        <div class="marcadores" id="contenedor-marcadores"></div>
+        <div id="aviso-texto" class="aviso"></div>
+    </div>
+    <div class="zona-navegacion" id="zona-navegacion">
+        <iframe id="vista-web" src=""></iframe>
+    </div>
+    <div class="modal" id="modal-agregar">
+        <div class="modal-caja">
+            <h4 style="margin:0 0 .8rem">Agregar marcador</h4>
+            <input id="nombre-sitio" placeholder="Nombre del sitio">
+            <input id="url-sitio" placeholder="Ej: https://facebook.com">
+            <div class="modal-botones">
+                <button style="padding:.55rem 1rem;border:none;border-radius:.35rem;background:#eee;color:#333;cursor:pointer" id="btn-cerrar">Cancelar</button>
+                <button style="padding:.55rem 1rem;border:none;border-radius:.35rem;background:#e62e00;color:#fff;cursor:pointer" id="btn-guardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Agrega código aquí
+    </script>
+</body>
+          </html>
