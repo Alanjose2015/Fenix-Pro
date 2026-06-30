@@ -7,44 +7,283 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: Roboto, Arial, sans-serif; height: 100vh; margin: 0; padding: 0; background: #fff; display: flex; flex-direction: column; overflow: hidden; }
-        .barra-sup { background: #f8f9fa; border-bottom: 1px solid #ddd; padding: .7rem 1rem; display: flex; align-items: center; gap: .8rem; position: relative; }
-        .barra-sup button { width: 2rem; height: 2rem; border-radius: 50%; border: none; background: transparent; color: #555; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .barra-sup button:hover { background: #eee; color: #e62e00; }
-        .espacio { flex: 1; }
-        .contenido { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem; overflow-y: auto; }
-        .marca { display: flex; align-items: center; gap: .5rem; margin-bottom: 1.8rem; }
-        .ico-fuego { font-size: 2.8rem; background: linear-gradient(135deg, #e62e00, #ff6b00, #ffcc00); -webkit-background-clip: text; background-clip: text; color: transparent; animation: llama 1.3s infinite alternate; }
-        .txt-fenix { font-size: 3rem; font-weight: 700; letter-spacing: 1.5px; background: linear-gradient(90deg, #e62e00, #ff6b00, #ffcc00); -webkit-background-clip: text; background-clip: text; color: transparent; animation: brillar 1.6s infinite alternate, flotar 2.2s infinite; }
-        @keyframes brillar { 0% { filter: brightness(1) } 100% { filter: brightness(1.4) drop-shadow(0 0 6px rgba(255, 107, 0, .6)) } }
-        @keyframes flotar { 0% { transform: translateY(0) } 100% { transform: translateY(-3px) } }
-        @keyframes llama { 0% { transform: scale(1) rotate(-3deg) } 100% { transform: scale(1.15) rotate(3deg) } }
-        .buscador { width: 100%; max-width: 620px; display: flex; align-items: center; border: 1px solid #ddd; border-radius: 2.5rem; padding: .8rem 1.2rem; background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, .08); }
-        .buscador:focus-within { box-shadow: 0 3px 12px rgba(230, 46, 0, .2); border-color: #ff6b00; }
-        .buscador i { color: #ff6b00; margin-right: .6rem; }
-        .buscador input { flex: 1; border: none; outline: none; font-size: 1rem; color: #333; background: transparent; }
-        .marcadores { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 1rem; width: 100%; max-width: 680px; margin: 1.8rem auto; }
-        .marcador { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; padding: .9rem; border-radius: .8rem; border: 1px solid #e5e5e5; background: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, .05); cursor: pointer; position: relative; }
-        .marcador:hover { transform: translateY(-2px); border-color: #ff6b00; box-shadow: 0 4px 10px rgba(230, 107, 0, .15); color: #e62e00; }
-        .marcador i { font-size: 1.3rem; }
-        .marcador span { font-size: .85rem; text-align: center; }
-        .btn-agregar { border-style: dashed; border-color: #aaa; color: #666; }
-        .menu-puntos { position: relative; }
-        .menu-desp { position: absolute; top: 2.5rem; right: .8rem; background: #fff; border: 1px solid #ddd; border-radius: .5rem; box-shadow: 0 3px 12px rgba(0, 0, 0, .15); min-width: 180px; display: none; z-index: 999; }
-        .menu-desp.mostrar { display: block; }
-        .menu-desp button { width: 100%; text-align: left; padding: .7rem 1rem; border: none; background: transparent; color: #333; display: flex; align-items: center; gap: .6rem; justify-content: flex-start; }
-        .menu-desp button:hover { background: #f1f3f4; color: #e62e00; }
-        .zona-navegacion { flex: 1; width: 100%; display: none; border-top: 1px solid #ddd; }
-        .zona-navegacion iframe { width: 100%; height: 100%; border: none; }
-        .aviso { display: none; color: #e62e00; text-align: center; margin-top: .8rem; font-size: .9rem; }
-        .modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .45); display: none; align-items: center; justify-content: center; z-index: 9999; }
-        .modal.mostrar { display: flex; }
-        .modal-caja { background: #fff; padding: 1.3rem; border-radius: .75rem; width: 88%; max-width: 320px; }
-        .modal-caja input { width: 100%; padding: .7rem; margin: .5rem 0; border: 1px solid #ddd; border-radius: .4rem; outline: none; }
-        .modal-caja input:focus { border-color: #ff6b00; }
-        .modal-botones { display: flex; justify-content: flex-end; gap: .7rem; margin-top: .9rem; }
-        .btn-quitar { position: absolute; top: 5px; right: 5px; width: 18px; height: 18px; border-radius: 50%; background: #eee; color: #666; font-size: 12px; display: none; align-items: center; justify-content: center; border: none; }
+        /* Agrega estilo aquí */
+        .barra-sup {
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            padding: .7rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            position: relative;
+        }
+        
+        .barra-sup button {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .barra-sup button:hover {
+            background: #eee;
+            color: #e62e00;
+        }
+        
+        .espacio {
+            flex: 1;
+        }
+        
+        .contenido {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            overflow-y: auto;
+        }
+        
+        .marca {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .ico-fuego {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #e62e00, #ff6b00, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: llama 1.3s infinite alternate;
+        }
+        
+        .txt-fenix {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #e62e00, #ff6b00, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: brillar 1.6s infinite alternate, flotar 2.2s infinite;
+        }
+        
+        @keyframes brillar {
+            0% { filter: brightness(1) }
+            100% { filter: brightness(1.4) drop-shadow(0 0 6px rgba(255, 107, 0, .6)) }
+        }
+        
+        @keyframes flotar {
+            0% { transform: translateY(0) }
+            100% { transform: translateY(-3px) }
+        }
+        
+        @keyframes llama {
+            0% { transform: scale(1) rotate(-3deg) }
+            100% { transform: scale(1.15) rotate(3deg) }
+        }
+        
+        .buscador {
+            width: 100%;
+            max-width: 620px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 2.5rem;
+            padding: .8rem 1.2rem;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+        }
+        
+        .buscador:focus-within {
+            box-shadow: 0 3px 12px rgba(230, 46, 0, .2);
+            border-color: #ff6b00;
+        }
+        
+        .buscador i {
+            color: #ff6b00;
+            margin-right: .6rem;
+        }
+        
+        .buscador input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: #333;
+            background: transparent;
+        }
+        
+        .marcadores {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 680px;
+            margin: 1.8rem auto;
+        }
+        
+        .marcador {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .3rem;
+            padding: .9rem;
+            border-radius: .8rem;
+            border: 1px solid #e5e5e5;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+            cursor: pointer;
+        }
+        
+        .marcador:hover {
+            transform: translateY(-2px);
+            border-color: #ff6b00;
+            box-shadow: 0 4px 10px rgba(230, 107, 0, .15);
+            color: #e62e00;
+        }
+        
+        .marcador i {
+            font-size: 1.3rem;
+        }
+        
+        .marcador span {
+            font-size: .85rem;
+            text-align: center;
+        }
+        
+        .btn-agregar {
+            border-style: dashed;
+            border-color: #aaa;
+            color: #666;
+        }
+        
+        .menu-puntos {
+            position: relative;
+        }
+        
+        .menu-desp {
+            position: absolute;
+            top: 2.5rem;
+            right: .8rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: .5rem;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
+            min-width: 180px;
+            display: none;
+            z-index: 999;
+        }
+        
+        .menu-desp.mostrar {
+            display: block;
+        }
+        
+        .menu-desp button {
+            width: 100%;
+            text-align: left;
+            padding: .7rem 1rem;
+            border: none;
+            background: transparent;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            justify-content: flex-start;
+        }
+        
+        .menu-desp button:hover {
+            background: #f1f3f4;
+            color: #e62e00;
+        }
+        
+        .zona-navegacion {
+            flex: 1;
+            width: 100%;
+            display: none;
+            border-top: 1px solid #ddd;
+        }
+        
+        .zona-navegacion iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .aviso {
+            display: none;
+            color: #e62e00;
+            text-align: center;
+            margin-top: .8rem;
+            font-size: .9rem;
+        }
+        
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .modal.mostrar {
+            display: flex;
+        }
+        
+        .modal-caja {
+            background: #fff;
+            padding: 1.3rem;
+            border-radius: .75rem;
+            width: 88%;
+            max-width: 320px;
+        }
+        
+        .modal-caja input {
+            width: 100%;
+            padding: .7rem;
+            margin: .5rem 0;
+            border: 1px solid #ddd;
+            border-radius: .4rem;
+            outline: none;
+        }
+        
+        .modal-caja input:focus {
+            border-color: #ff6b00;
+        }
+        
+        .modal-botones {
+            display: flex;
+            justify-content: flex-end;
+            gap: .7rem;
+            margin-top: .9rem;
+        }
+        
+        .btn-quitar {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #eee;
+            color: #666;
+            font-size: 12px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border: none;
+        }
     </style>
 </head>
 <body>
